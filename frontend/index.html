@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CommerceCraft | Modern Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="#">Commerce<span>Craft</span></a>
+  <nav>
+    <a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#admin">Admin</a>
+  </nav>
+  <button class="cart-btn" onclick="toggleCart()">Cart <b id="cartCount">0</b></button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div>
+    <p class="eyebrow">SMART • SIMPLE • SCALABLE</p>
+    <h1>Everything you need.<br><span>One better store.</span></h1>
+    <p>CommerceCraft is a modular e-commerce experience designed for usability, performance and secure growth.</p>
+    <a class="primary" href="#shop">Start Shopping</a>
+  </div>
+  <div class="hero-card"><div class="orb">CC</div><h3>CommerceCraft</h3><p>Modular commerce framework</p></div>
+</section>
+
+<section id="shop" class="section">
+  <div class="section-head"><div><p class="eyebrow">PRODUCT CATALOG</p><h2>Explore products</h2></div>
+    <input id="search" class="search" placeholder="Search products..." oninput="loadProducts()">
+  </div>
+  <div id="categories" class="chips"></div>
+  <div id="products" class="grid"></div>
+</section>
+
+<section id="about" class="section muted">
+  <p class="eyebrow">WHY COMMERCECRAFT</p><h2>Built around the project requirements</h2>
+  <div class="features">
+    <article><b>Modular</b><p>Reusable product, cart, order and admin components make the platform easy to extend.</p></article>
+    <article><b>Usable</b><p>Responsive layouts, clear navigation and simple shopping flows support end users.</p></article>
+    <article><b>Scalable</b><p>REST-style API separation keeps the frontend and backend independently maintainable.</p></article>
+    <article><b>Secure-ready</b><p>Server-side validation and an API boundary provide a foundation for authentication and production security.</p></article>
+  </div>
+</section>
+
+<section id="admin" class="section">
+  <p class="eyebrow">ADMIN MODULE</p><h2>Product management</h2>
+  <form id="productForm" class="admin-form">
+    <input id="pname" placeholder="Product name" required>
+    <input id="pprice" type="number" placeholder="Price" required>
+    <input id="pcat" placeholder="Category" required>
+    <input id="pstock" type="number" placeholder="Stock" value="10">
+    <input id="pimage" placeholder="Image URL">
+    <input id="pdesc" placeholder="Description">
+    <button class="primary" type="submit">Add Product</button>
+  </form>
+</section>
+</main>
+
+<aside id="cart" class="cart-panel">
+  <div class="cart-head"><h2>Your Cart</h2><button onclick="toggleCart()">×</button></div>
+  <div id="cartItems"></div>
+  <div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+  <button class="primary full" onclick="checkout()">Checkout</button>
+</aside>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
